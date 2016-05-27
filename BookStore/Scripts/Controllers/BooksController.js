@@ -4,6 +4,17 @@
 booksApp.controller("booksController", function ($scope, $http) {
     $scope.formData = {};
 
+    $scope.AddBook = { visible: false };
+
+    $scope.AddBooks = function () {
+        $scope.AddBook = { visible: true };
+    }
+
+    $scope.Close = function () {
+        $scope.AddBook = { visible: false };
+    }
+
+
     $http.get('/api/books/').success(function (data) {
         $scope.books = data;
     }).error(function (data) {

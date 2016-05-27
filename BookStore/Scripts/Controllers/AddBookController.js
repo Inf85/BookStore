@@ -2,7 +2,9 @@
 
 
 booksApp.controller("addbookController", function ($scope, $http) {
+
     $scope.submit = function () {
+       
         var id = parseInt($scope.authorsList.Id);
         alert($scope.authorsList.Id);
         var book = {

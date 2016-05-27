@@ -9,87 +9,25 @@
     <div id="errors" style="color:red;" ng-model="errors">{{errors}}</div>
     <div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Books <button style="float:right;" ng-click="AddBook()">Add Book</button></h2>
+                    <h2 class="panel-title">Books <button class="btn btn-info" style="margin-top:0px; float:right;" ng-click="AddBooks()">Add Book</button></h2>
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled" ng-repeat="book in books ">
                         <li>
                             <strong><span>{{book.Author.Name}}</span></strong>:<span>{{book.Title}}</span>
                             <small><a href="#" ng-click="getBookDetails(book)">Details</a></small>
+                            <small><a href="#" ng-click="EditBook(book)">Details</a></small>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div>
-                <div class="col-md-30" ng-if="Details.visible">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">Detail</h2>
-                        </div>
-                        <table class="table">
-                            <tr><td width="400px;">Author {{booksD.Author.Name}}</td></tr>
-                            <tr><td>Title {{booksD.Title}}</td></tr>
-                            <tr><td>Year {{booksD.Year}}</td></tr>
-                            <tr><td>Genre {{booksD.Genre}}</td></tr>
-                            <tr><td>Price {{booksD.Price}}</td></tr>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <div ng-include src="'/Scripts/Templates/BookDetails.html'"></div>
             </div>
 
-            
-
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">Add Book</h2>
-                    </div>
-                    <div ng-controller="addbookController">
-                        
-                        <div class="panel-body">
-                            <form class="form-horizontal" ng-submit="submit()">
-                                <div class="form-group">
-                                    <label for="inputAuthor" class="col-sm-2 control-label">Author</label>
-                                    <div class="col-sm-10">
-                                        <select ng-model="authorsList" ng-options="author as author.Name for author in authors track by author.Id ">
-                                            <option value="" disabled selected>Выбрать</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="inputTitle" class="col-sm-2 control-label">Title</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputTitle" ng-model="Title" />
-                                    </div>
-
-                                    <label for="inputYear" class="col-sm-2 control-label">Year</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="inputYear" ng-model="Year" />
-                                    </div>
-
-                                    <label for="inputGenre" class="col-sm-2 control-label">Genre</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputGenre" ng-model="Genre" />
-                                    </div>
-
-                                    <label for="inputPrice" class="col-sm-2 control-label">Price</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" step="any" class="form-control" id="inputPrice" ng-model="Price" />
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div ng-if="AddBook.visible" ng-include src="'/Scripts/Templates/addBooks.html'"></div>
         </div>
     </div>
 
