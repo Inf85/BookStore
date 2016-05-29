@@ -19,13 +19,13 @@
                         <li>
                             <strong><span>{{book.Author.Name}}</span></strong>:<span>{{book.Title}}</span>
                             <small><a href="#" ng-click="getBookDetails(book)">Details</a></small>
-                            <small><a href="#" ng-click="EditBook(book)">Details</a></small>
+                            <small ng-controller="EditBookController"><a href="#" ng-click="EditBook(book)">Edit</a></small>
                         </li>
                     </ul>
                 </div>
             </div>
             <div ng-include src="'/Scripts/Templates/BookDetails.html'"></div>
-            </div>
+            <div ng-controller="EditBookController" ng-include src="'/Scripts/Templates/EditBook.html'"></div>
 
             <div ng-if="AddBook.visible" ng-include src="'/Scripts/Templates/addBooks.html'"></div>
         </div>
@@ -35,5 +35,6 @@
 
 <script src="~/Scripts/Controllers/BooksController.js"></script>
 <script src="~/Scripts/Controllers/AddBookController.js"></script>
+<script src="~/Scripts/Controllers/EditBookController.js"></script>
 
 </html>

@@ -5,10 +5,13 @@ booksApp.controller("booksController", function ($scope, $http) {
     $scope.formData = {};
 
     $scope.AddBook = { visible: false };
+//    $scope.BookEdit = { visible: false };
+
 
     $scope.AddBooks = function () {
         $scope.AddBook = { visible: true };
     }
+
 
     $scope.Close = function () {
         $scope.AddBook = { visible: false };
@@ -38,6 +41,8 @@ booksApp.controller("booksController", function ($scope, $http) {
             alert("ERROR");
         });
     }
+
+   
 
 
     
